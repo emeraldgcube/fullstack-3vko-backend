@@ -4,7 +4,7 @@ const morgan = require("morgan")
 const cors = require("cors")
 app.use(express.json())
 app.use(cors())
-
+app.use(express.static('build'))
 
 let persons = [
       {
@@ -30,7 +30,7 @@ let persons = [
     ]
 
 app.get('/', (req, res) => {
-  res.send('<h1>Tervetuloa puhelinluettelo-apiin</h1>')
+  res.send(`<h1>Tervetuloa puhelinluettelo-apiin</h1>`)
 })
 
 app.get('/api/persons/:id', (request, response) => {
